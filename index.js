@@ -1,16 +1,16 @@
 const express = require("express")
 const app = express()
 const PORT = process.env.PORT||5000
-app.listen(PORT,function()
+app.listen(PORT,()=>
 {
-    console.log("Running port 5000....")
+    console.log(`Running port ${PORT}....`)
 })
 
 const myarr = []
 app.get("/home",function(req,res)
 {
-    
-    myarr.push(req.query.value)
+    const value = req.query.value
+    myarr.push(value)
     console.log(myarr)
     res.send(myarr)
 })
